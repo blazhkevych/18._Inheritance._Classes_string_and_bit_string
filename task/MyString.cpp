@@ -8,7 +8,7 @@ MyString::MyString() :m_string(nullptr)
 	m_string[0] = '\0';
 }
 
-// Конструктор, принимающий в качестве параметра C - строку
+// Конструктор, с одним аргументом, принимающий в качестве параметра C - строку // ОК
 // (заканчивается нулевым байтом).
 MyString::MyString(char* value)
 {
@@ -48,7 +48,7 @@ MyString& MyString::operator=(const MyString& source)
 {
 	if (this == &source)
 		return *this;
-	delete[] m_string;
+	delete[] this->m_string;
 	m_string = new char[strlen(source.m_string) + 1];
 	strcpy_s(m_string, strlen(source.m_string) + 1, source.m_string);
 	return *this;
