@@ -32,5 +32,4 @@ public:
 	bool operator==(const MyString& rightValue) const;
 	// Перегруженный оператор !=.
 	bool operator!=(const MyString& rightValue) const;
-
 };

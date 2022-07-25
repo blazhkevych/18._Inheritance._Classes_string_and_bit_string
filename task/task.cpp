@@ -35,9 +35,15 @@
 #include <iostream>
 
 #include "MyString.h"
+using std::cout;
+using std::endl;
 
 int main()
 {
+	//////////////////
+	//class MyString//
+	//////////////////
+
 	// Конструктор без параметров; // ОК
 	MyString str;
 
@@ -58,10 +64,27 @@ int main()
 	MyString str4{ temp1 };
 	MyString str3 = b + temp1;
 
-	// Перегруженный оператор +=.
+	// Перегруженный оператор +=. // OK
 	MyString str5;
-	str5 += b; // не работает.
+	str5 += b;
 
-	str5;
+	// Перегруженный оператор ==. // ОК
+	MyString str6{ temp }, str7{ temp };
+	if (str6 == str7)
+		cout << "are equivalent!" << endl;
+	else
+		cout << "are not equivalent!" << endl;
 
+	// Перегруженный оператор !=. // OK
+	char temp2[] = "qwerty";
+	MyString str8{ temp }, str9{ temp2 };
+	if (str8 != str9)
+		cout << "are not equivalent!" << endl;
+	else
+		cout << "are equivalent!" << endl;
+
+	///////////////////
+	//class BitString//
+	///////////////////
+	
 }

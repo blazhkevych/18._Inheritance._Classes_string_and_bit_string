@@ -90,7 +90,9 @@ bool MyString::operator==(const MyString& rightValue) const
 // Перегруженный оператор !=.
 bool MyString::operator!=(const MyString& rightValue) const
 {
-	return !(this->operator==(rightValue));
+	if (strcmp(this->m_string, rightValue.m_string) != 0)
+		return true;
+	return false;
 }
 
 // Перегруженный оператор +.
