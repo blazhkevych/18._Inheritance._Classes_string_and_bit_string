@@ -1,8 +1,11 @@
 ﻿#include <cstring>
+#include <iostream>
 #include "MyString.h"
+using std::endl;
+using std::cout;
 
 // Конструктор без параметров.
-MyString::MyString() :m_string(nullptr)
+MyString::MyString() 
 {
 	m_string = new char[1];
 	m_string[0] = '\0';
