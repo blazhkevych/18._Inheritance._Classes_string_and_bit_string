@@ -21,7 +21,7 @@ public:
 	~BitString();
 
 	// Изменение знака числа(перевод числа в дополнительный код).
-	void ChangingSignOfNumber();
+	void ChangingSignOfNumber() const;
 
 	// Сложение битовых строк(перегрузить операторы + и += ).
 	// Перегруженный оператор +.
@@ -36,8 +36,6 @@ public:
 
 	// Перегруженный оператор !=.
 	bool operator!=(const BitString& rightValue) const;
-
-
 
 	//Проверка на ‘0’ и ‘1’, если строка подходит, возвращает true, иначе false.
 	static bool CheckBitString(char* str);

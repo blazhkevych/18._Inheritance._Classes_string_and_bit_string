@@ -9,9 +9,9 @@ using std::cout;
 BitString::BitString() :MyString() {}
 
 // Изменение знака числа(перевод числа в дополнительный код).
-void BitString::ChangingSignOfNumber()
+void BitString::ChangingSignOfNumber() const
 {
-	int strLength = strlen(m_string);
+	const int strLength = strlen(m_string);
 	// Инвертируем.
 	for (int i = 0; i < strLength; i++)
 		m_string[i] == '1' ? m_string[i] = '0' : m_string[i] = '1';
@@ -130,20 +130,10 @@ BitString::BitString(char* value)
 			m_string[strlen(value)] = '\0';
 		}
 	}
-	//else // Если строка не подошла и там не только 0 или 1.
-	//{
-	//	int len = strlen(value);
-	//	int r{ 0 };
-	//	while (r < len) // Обнулить строку, так как не только 0 или 1.
-	//	{
-	//		value[r] = '\0';
-	//		r++;
-	//	}
-	//}
 }
 
 // Конструктор копирования.
-BitString::BitString(const BitString& source)
+BitString::BitString(const BitString& source) : MyString(source)
 {
 	if (CheckBitString(source.m_string) == true) // Если строка подходит.
 	{
