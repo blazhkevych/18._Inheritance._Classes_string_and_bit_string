@@ -13,7 +13,7 @@ void BitString::ChangingSignOfNumber()
 {
 	int strLength = strlen(m_string);
 	// Инвертируем.
-	for (int i = 0; i < strLength; i++)	
+	for (int i = 0; i < strLength; i++)
 		m_string[i] == '1' ? m_string[i] = '0' : m_string[i] = '1';
 
 	char one[10] = { "00000001" };
@@ -52,13 +52,48 @@ void BitString::ChangingSignOfNumber()
 }
 
 // Перегруженный оператор +.
-//BitString BitString::operator+(const BitString& rightSource) const
-//{
-//	// MyString temp.
-//	MyString temp{ buff };
-//
-//	return MyString::operator+(rightSource);
-//}
+BitString BitString::operator+(const BitString& rightSource) const
+{
+	const int length = strlen(this->m_string) + strlen(rightSource.m_string);
+
+	char* buff = new char[length + 1];
+
+	// Копируем строки в buff[].
+	strcpy_s(buff, length + 1, this->m_string);
+	strcat_s(buff, length + 1, rightSource.m_string);
+	buff[length] = '\0';
+
+	// MyString temp.
+	BitString temp{ buff };
+
+	// Удаляем buff[].
+	delete[] buff;
+
+	// Возвращаем объединенную строку.
+	return temp;
+}
+
+// Перегруженный оператор +=.
+BitString& BitString::operator+=(const BitString& source)
+{
+	return *this = this->operator+(source);
+}
+
+// Перегруженный оператор ==.
+bool BitString::operator==(const BitString& rightValue) const
+{
+	if (strcmp(this->m_string, rightValue.m_string) == 0)
+		return true;
+	return false;
+}
+
+// Перегруженный оператор !=.
+bool BitString::operator!=(const BitString& rightValue) const
+{
+	if (strcmp(this->m_string, rightValue.m_string) != 0)
+		return true;
+	return false;
+}
 
 // Проверка на ‘0’ и ‘1’, если строка подходит, возвращает true, иначе false.
 bool BitString::CheckBitString(char* str)

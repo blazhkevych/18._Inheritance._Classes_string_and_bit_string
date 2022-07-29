@@ -135,13 +135,34 @@ int main()
 	bit_string_10.ChangingSignOfNumber();
 
 	// Сложение битовых строк(перегрузить операторы + и += ).
-	// Перегруженный оператор +.
+	// Перегруженный оператор +. // OK
 	char tmp7[] = "11110000"; // 240
 	BitString bit_string_11{ tmp7 };
 	char tmp8[] = "00001111"; // 15
 	BitString bit_string_12{ tmp8 };
 	BitString bit_string_13;
 	bit_string_13 = bit_string_11 + bit_string_12;
+
+	// Перегруженный оператор +=. // OK
+	char tmp9[] = "11110000"; 
+	BitString bit_string_14{ tmp9 };
+	char tmp10[] = "11110000"; // 15
+	BitString bit_string_15{ tmp10 };
+	bit_string_15 += bit_string_14;
+
+	// Перегруженный оператор ==. // OK
+	char tmp11[] = "11110000"; 
+	BitString bit_string_16{ tmp11 };
+	if (bit_string_14 == bit_string_16)
+		cout << "are equivalent!" << endl;
+	else
+		cout << "are not equivalent!" << endl;
+
+	// Перегруженный оператор !=. // OK
+	if (bit_string_15 != bit_string_14)
+		cout << "are not equivalent!" << endl;
+	else
+		cout << "are equivalent!" << endl;
 
 #pragma endregion
 }
