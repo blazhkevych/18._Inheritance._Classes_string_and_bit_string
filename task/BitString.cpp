@@ -1,6 +1,6 @@
 ﻿#include <cstring>
-#include <ostream>
 #include <iostream>
+#include <ostream>
 #include "BitString.h"
 using std::endl;
 using std::cout;

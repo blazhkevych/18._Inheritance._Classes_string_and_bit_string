@@ -1,8 +1,6 @@
 ﻿#include <cstring>
 #include <iostream>
 #include "MyString.h"
-using std::endl;
-using std::cout;
 
 // Конструктор без параметров.
 MyString::MyString() 
